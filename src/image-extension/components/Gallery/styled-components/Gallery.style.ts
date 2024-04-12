@@ -23,5 +23,32 @@ const ContainerImage = styled.figure`
     cursor: pointer;
   }
 `;
+const Label = styled.label`
+  position: relative;
+  line-height: 0;
 
-export { ContainerImage };
+  & p {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  & p::before {
+    content: "";
+    inline-size: 1rem;
+    block-size: 1rem;
+    border: 1px solid #1567ff;
+    border-radius: 0.25rem;
+  }
+  & input:checked + p::before {
+    border-color: green;
+    border-width: 2px;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    inline-size: 0.5rem;
+    rotate: 30deg;
+    transform: translateY(-0.25rem);
+    border-radius: none;
+    transition: rotate 0.25s ease-in-out;
+  }
+`;
+export { ContainerImage, Label };

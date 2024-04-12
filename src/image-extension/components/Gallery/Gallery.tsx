@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { DonwloadButton } from "../DonwloadButton";
-import { ContainerImage } from "./styled-components";
+import { ContainerImage, Label } from "./styled-components";
 
 export type GalleryProps = {
   // types...
@@ -33,22 +33,22 @@ const Gallery = ({ images }: GalleryProps) => {
 
   return (
     <>
-      <h3>{images.length} all image founds</h3>
-      <label>
+      <h3>{images.length} image founds</h3>
+      <Label>
         <input
           type="checkbox"
           checked={all}
           onChange={handleAllImageDownload}
-        />{" "}
-        select all image
-      </label>
+        />
+        <p>select all image</p>
+      </Label>
       {images.map((image) => (
         <ContainerImage>
           <a href={image} download>
             download
           </a>
           <label>
-            <img src={image} alt="cat" />
+            <img src={image} />
             <input
               type="checkbox"
               name="slt_image"
