@@ -10,6 +10,10 @@
   "host_permissions": ["https://*/*", "http://*/*"],
   "permissions": ["scripting", "tabs", "activeTab", "storage"],
   "icons": {
-    "32": "icon32x32.png"
+    "16": "icon16x16.png",
+    "32": "icon32x32.png",
+    "144": "icon150x150.png",
+    "192": "icon192x192.png",
+    "512": "icon512x512.png"
   }
 }
