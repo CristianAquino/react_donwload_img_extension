@@ -36,7 +36,7 @@ const Label = styled.label`
     content: "";
     inline-size: 1rem;
     block-size: 1rem;
-    border: 1px solid #1567ff;
+    border: 1px solid #088cd4;
     border-radius: 0.25rem;
   }
   & input:checked + p::before {
