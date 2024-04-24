@@ -8,15 +8,24 @@ export type DonwloadButtonProps = {
 };
 
 const DonwloadButton = ({ images }: DonwloadButtonProps) => {
-  async function descargarImagen(url: string, zip: any) {
+  async function descargarImagen({
+    url,
+    zip,
+    c,
+  }: {
+    url: string;
+    zip: any;
+    c: number;
+  }) {
     try {
       // Descarga la imagen utilizando fetch
       const response = await fetch(url);
       const imageData = await response.blob();
-      const fileName =
-        url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +
-        "." +
-        imageData.type.split("/")[1];
+      const fileName = c + "." + imageData.type.split("/")[1];
+      // const fileName =
+      //   url.substring(url.lastIndexOf("/") + 1, url.lastIndexOf(".")) +
+      //   "." +
+      //   imageData.type.split("/")[1];
       // Agrega la imagen al archivo RAR utilizando JSZip
       zip.file(fileName, imageData);
     } catch (error) {
@@ -26,8 +35,10 @@ const DonwloadButton = ({ images }: DonwloadButtonProps) => {
 
   const handleDownload = async () => {
     const zip = new JSZip();
+    let c = 0;
     for (const img of images) {
-      await descargarImagen(img, zip);
+      c++;
+      await descargarImagen({ url: img, zip, c });
     }
 
     zip
